@@ -3813,6 +3813,68 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
       /* 只有當前幻燈片顯示 */
     }
   </style>
+  <style>
+    /* 可根據需求調整按鈕樣式、外觀等 */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      /* 讓輪播置中 */
+      overflow: hidden;
+      /* 隱藏超出範圍的內容 */
+    }
+
+    .carousel-track {
+      display: flex;
+      /* flex 橫向排列 */
+      transition: transform 0.5s ease;
+      /* 滑動時的過渡效果 */
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      /* 每張幻燈片佔滿容器的 100% 宽度 */
+      /* 或 min-width: 100%; 也可達到同樣效果 */
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      /* 視需求調整 */
+    }
+
+    /* 左右按鈕的外觀，可自行美化 */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .carousel-btn:hover {
+      opacity: 1;
+    }
+
+    .carousel-btn-prev {
+      left: 10px;
+    }
+
+    .carousel-btn-next {
+      right: 10px;
+    }
+  </style>
   <!-- animation -->
   <style>
     .gd-ad-flex-parent {
@@ -4001,38 +4063,38 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                   <img src="https://jeffTW84.github.io/Draco/assets/draco2-full-view.png" alt="Product Image 1"
                     style="width:100%; height:100%; object-fit:cover;">
                 </li>
-                <li
-                  style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
+                <li style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
                   data-index="1" class="carousel-slide">
                   <img src="https://jeffTW84.github.io/Draco/assets/draco2-lock.png" alt="Product Image 2"
                     style="width:100%; height:100%; object-fit:cover;">
                 </li>
-                <li
-                  style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
+                <li style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
                   data-index="2" class="carousel-slide">
                   <img src="https://jeffTW84.github.io/Draco/assets/draco2-n1.png" alt="Product Image 3"
                     style="width:100%; height:100%; object-fit:cover;">
                 </li>
-                <li
-                  style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
+                <li style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
                   data-index="3" class="carousel-slide">
                   <img src="https://jeffTW84.github.io/Draco/assets/draco2-n2.png" alt="Product Image 4"
                     style="width:100%; height:100%; object-fit:cover;">
                 </li>
-                <li
-                  style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
+                <li style="margin-left:5px; height:600px; width:inherit; min-height:600px; min-width:inherit; opacity:1"
                   data-index="4" class="carousel-slide">
                   <img src="https://jeffTW84.github.io/Draco/assets/draco2-ring.png" alt="Product Image 5"
                     style="width:100%; height:100%; object-fit:cover;">
                 </li>
               </ul>
-              <button data-ux="CarouselButtonPrevious" data-aid="GALLERY_SCROLL_LEFT_ARROW" style=" position: absolute; top: 50%; left: 0px; transform: translateY(-50%); z-index: 100; width: 40px; height: 40px; background: rgba(0,0,0,0.4); color: #fff; border: none; cursor: pointer; outline: none; opacity: 0.5; " class="x-el x-el-button">
+              <button data-ux="CarouselButtonPrevious" data-aid="GALLERY_SCROLL_LEFT_ARROW"
+                style=" position: absolute; top: 50%; left: 0px; transform: translateY(-50%); z-index: 100; width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; outline: none; opacity: 0.5; "
+                class="x-el x-el-button">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
                   <path fill-rule="evenodd"
                     d="M15.485 4L7 11.769l.499.484L15.463 20l1.48-1.394-6.984-6.794 6.963-6.375z"></path>
                 </svg>
               </button>
-              <button data-ux="CarouselButtonNext" data-aid="GALLERY_SCROLL_RIGHT_ARROW" style=" position: absolute; top: 50%; right: 0px; transform: translateY(-50%); z-index: 100; width: 40px; height: 40px; background: rgba(0,0,0,0.4); color: #fff; border: none; cursor: pointer; outline: none; opacity: 0.5; " class="x-el x-el-button">
+              <button data-ux="CarouselButtonNext" data-aid="GALLERY_SCROLL_RIGHT_ARROW"
+                style=" position: absolute; top: 50%; right: 0px; transform: translateY(-50%); z-index: 100; width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; border: none; cursor: pointer; outline: none; opacity: 0.5; "
+                class="x-el x-el-button">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
                   <path fill-rule="evenodd" d="M8.49 4L7 5.395l7.024 6.793-7.001 6.375L8.467 20l6.544-5.768-.501-.485z">
                   </path>
@@ -4064,7 +4126,7 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                         <div data-ux="FeaturedText" alignment="center" data-aid="CONTENT_WELCOME_DESCRIPTION_RENDERED"
                           data-typography="BodyAlpha"
                           class="x-el c1-1 c1-2 c1-1k c1-1l c1-1m c1-1n c1-1o c1-1p c1-bu c1-bv c1-bw c1-bx c1-by c1-bz c1-c0 c1-c1 c1-c2 c1-c3 c1-c4 c1-c5 c1-c6 c1-c7 c1-c8 c1-c9 c1-ca c1-cb c1-cc c1-cd c1-ce c1-cf c1-cg c1-ch c1-ci c1-cj c1-ck c1-cl c1-cm c1-cn c1-co c1-cp c1-46 c1-b c1-cq c1-c c1-1r c1-d c1-e c1-f c1-g x-rt">
-                          <p style="margin:0"><span>產品好棒</span></p>
+                          <p style="margin:0"><span>產品優點</span></p>
                         </div>
                       </div>
                     </div>
@@ -4353,7 +4415,9 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
     const slides = document.querySelectorAll('.carousel-track li');
     const prevBtn = document.querySelector('[data-ux="CarouselButtonPrevious"]');
     const nextBtn = document.querySelector('[data-ux="CarouselButtonNext"]');
+    let autoPlayInterval = null; // 用於存放自動播放的 setInterval ID
 
+    // 顯示指定 index 的幻燈片
     function showSlide(index) {
       if (index < 0) index = slides.length - 1;
       if (index >= slides.length) index = 0;
@@ -4367,15 +4431,28 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
       slides[currentIndex].classList.add('showing');
     }
 
+    function restartAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 3000);
+    }
+
     prevBtn.addEventListener('click', () => {
       showSlide(currentIndex - 1);
+      restartAutoPlay();
     });
+
     nextBtn.addEventListener('click', () => {
       showSlide(currentIndex + 1);
+      restartAutoPlay();
     });
 
     showSlide(0);
+
+    restartAutoPlay();
   </script>
+
 </body>
 
 </html>

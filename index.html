@@ -130,6 +130,7 @@
       color: rgb(62, 62, 62);
       /* 點擊中的顏色 */
     }
+
     @keyframes float {
       0%,
       100% {
@@ -765,6 +766,25 @@
       &copy; 2025 IntelliMotionMatrix INC. All rights reserved.
     </div>
   </footer>
+  <script>
+    // Handle banner shrink on scroll
+    const banner = document.getElementById('banner');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        banner.classList.add('shrink');
+      } else {
+        // Scrolling up
+        banner.classList.remove('shrink');
+      }
+
+      lastScrollTop = scrollTop;
+    });
+  </script>
   <script>
     function toggleAccordion(header) {
       const content = header.nextElementSibling;

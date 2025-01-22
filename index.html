@@ -217,6 +217,28 @@
 
     .accordion-header:hover {
       background: #6c6c6c;
+      animation: slide-animation 0.8s ease-in-out;
+    }
+
+    @keyframes slide-animation {
+      0% { transform: translateX(0); }
+      68% { transform: translateX(10px); }
+      100% { transform: translateX(0px); }
+    }
+    
+    .arrow {
+      width: 12px;
+      height: 12px;
+      border: solid rgb(102, 4, 23);
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .accordion-header.active .arrow {
+      transform: rotate(225deg);
     }
 
     .accordion-content {
@@ -789,22 +811,26 @@
     function toggleAccordion(header) {
       const content = header.nextElementSibling;
       const isActive = header.classList.contains("active");
-  
+
       // 關閉所有其他的 accordion
       document.querySelectorAll(".accordion-header").forEach((item) => {
         item.classList.remove("active");
         item.nextElementSibling.style.display = "none";
       });
-  
+
       // 如果當前未激活，則展開
       if (!isActive) {
         header.classList.add("active");
         content.style.display = "block";
-  
-        // 滑動到螢幕頂部
-        header.scrollIntoView({
+
+        // 計算滑動位置，距離螢幕頂部 80px
+        const offset = 80; // 距螢幕頂部的偏移量
+        const top = header.getBoundingClientRect().top + window.scrollY - offset;
+
+        // 滑動到指定位置
+        window.scrollTo({
+          top: top,
           behavior: "smooth",
-          block: "start",
         });
       }
     }
